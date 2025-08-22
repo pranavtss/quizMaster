@@ -1,4 +1,4 @@
-import QuestionCard from "../components/questionCard";
+import QuestionCard from "../components/QuestionCard";
 
 export default function Quiz({ questions, index, onAnswer }) {
   const q = questions[index];
