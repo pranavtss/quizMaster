@@ -1,9 +1,13 @@
-export default function Home({ onStart }) {
+export default function Home({ onStart, name }) {
   return (
     <div className="page">
-      <h1>Welcome to QuizMaster 🎓</h1>
-      <p className="subtitle">"Challenge yourself with this Web Development Fundamentals Quiz!"</p>
-      <button className="start-btn" onClick={onStart}>Start Quiz</button>
+      <h1>Welcome {name} 🎓</h1>
+      <p className="subtitle">
+      “Test your computer science knowledge with 10 fresh questions every time!”
+      </p>
+      <button className="start-btn" onClick={onStart}>
+        Start Quiz
+      </button>
     </div>
   );
 }

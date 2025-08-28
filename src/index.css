@@ -145,3 +145,15 @@ button:active, .start-btn:active { transform: translateY(0); }
   background: linear-gradient(90deg, #4cafef, #2196f3);
   transition: width 0.3s ease-in-out;
 }
+.input-box {
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: var(--radius-sm);
+  font-size: 16px;
+  outline: none;
+}
+.input-box:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 6px rgba(52,152,219,.4);
+}
+
