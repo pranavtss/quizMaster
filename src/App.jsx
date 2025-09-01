@@ -57,7 +57,8 @@ export default function App() {
   const goHome = () => setView(VIEWS.HOME);
 
   return (
-    <div className="app">
+  <div className="app">
+    {view !== VIEWS.SIGNUP && (
       <Navbar
         active={view}
         onNavigate={(v) => {
@@ -65,31 +66,33 @@ export default function App() {
           else setView(VIEWS.HOME);
         }}
       />
+    )}
 
-      {view === VIEWS.SIGNUP && (
-        <Signup
-          onContinue={(name) => {
-            setUsername(name);
-            setView(VIEWS.HOME);
-          }}
-        />
-      )}
+    {view === VIEWS.SIGNUP && (
+      <Signup
+        onContinue={(name) => {
+          setUsername(name);
+          setView(VIEWS.HOME);
+        }}
+      />
+    )}
 
-      {view === VIEWS.HOME && <Home onStart={startQuiz} name={username} />}
+    {view === VIEWS.HOME && <Home onStart={startQuiz} name={username} />}
 
-      {view === VIEWS.QUIZ && questions.length > 0 && (
-        <Quiz questions={questions} index={index} onAnswer={handleAnswer} />
-      )}
+    {view === VIEWS.QUIZ && questions.length > 0 && (
+      <Quiz questions={questions} index={index} onAnswer={handleAnswer} />
+    )}
 
-      {view === VIEWS.RESULT && (
-        <Result
-          score={score}
-          total={questions.length}
-          onRestart={restart}
-          onHome={goHome}
-          answers={answers}
-        />
-      )}
-    </div>
-  );
+    {view === VIEWS.RESULT && (
+      <Result
+        score={score}
+        total={questions.length}
+        onRestart={restart}
+        onHome={goHome}
+        answers={answers}
+      />
+    )}
+  </div>
+);
+
 }
