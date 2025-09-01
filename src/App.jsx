@@ -4,9 +4,10 @@ import Home from "./pages/Home";
 import Quiz from "./pages/Quiz";
 import Result from "./pages/Result";
 import Signup from "./pages/Signup";
+import About from "./pages/About";   // ⬅️ Import About
 import "./index.css";
 
-const VIEWS = { SIGNUP: "signup", HOME: "home", QUIZ: "quiz", RESULT: "result" };
+const VIEWS = { SIGNUP: "signup", HOME: "home", QUIZ: "quiz", RESULT: "result", ABOUT: "about" };
 
 export default function App() {
   const [view, setView] = useState(VIEWS.SIGNUP);
@@ -14,7 +15,7 @@ export default function App() {
   const [questions, setQuestions] = useState([]);
   const [index, setIndex] = useState(0);
   const [score, setScore] = useState(0);
-  const [answers, setAnswers] = useState([]); 
+  const [answers, setAnswers] = useState([]);
 
   useEffect(() => {
     if (view === VIEWS.QUIZ) {
@@ -57,42 +58,40 @@ export default function App() {
   const goHome = () => setView(VIEWS.HOME);
 
   return (
-  <div className="app">
-    {view !== VIEWS.SIGNUP && (
-      <Navbar
-        active={view}
-        onNavigate={(v) => {
-          if (v === "quiz") startQuiz();
-          else setView(VIEWS.HOME);
-        }}
-      />
-    )}
+    <div className="app">
+      {view !== VIEWS.SIGNUP && (
+        <Navbar
+          active={view}
+          onNavigate={(v) => {
+            if (v === "quiz") startQuiz();
+            else setView(v); // allow direct navigation
+          }}
+        />
+      )}
 
-    {view === VIEWS.SIGNUP && (
-      <Signup
-        onContinue={(name) => {
-          setUsername(name);
-          setView(VIEWS.HOME);
-        }}
-      />
-    )}
+      {view === VIEWS.SIGNUP && (
+        <Signup
+          onContinue={(name) => {
+            setUsername(name);
+            setView(VIEWS.HOME);
+          }}
+        />
+      )}
 
-    {view === VIEWS.HOME && <Home onStart={startQuiz} name={username} />}
-
-    {view === VIEWS.QUIZ && questions.length > 0 && (
-      <Quiz questions={questions} index={index} onAnswer={handleAnswer} />
-    )}
-
-    {view === VIEWS.RESULT && (
-      <Result
-        score={score}
-        total={questions.length}
-        onRestart={restart}
-        onHome={goHome}
-        answers={answers}
-      />
-    )}
-  </div>
-);
-
+      {view === VIEWS.HOME && <Home onStart={startQuiz} name={username} />}
+      {view === VIEWS.QUIZ && questions.length > 0 && (
+        <Quiz questions={questions} index={index} onAnswer={handleAnswer} />
+      )}
+      {view === VIEWS.RESULT && (
+        <Result
+          score={score}
+          total={questions.length}
+          onRestart={restart}
+          onHome={goHome}
+          answers={answers}
+        />
+      )}
+      {view === VIEWS.ABOUT && <About />}
+    </div>
+  );
 }
