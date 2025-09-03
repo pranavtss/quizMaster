@@ -6,7 +6,7 @@ export default function LeaderBoard() {
   useEffect(() => {
     const fetchLeaderboard = async () => {
       try {
-        const res = await fetch("https://backend-quizmaster.onrender.com/usersleaderboard");
+        const res = await fetch("https://backend-quizmaster.onrender.com/users/leaderboard");
         const data = await res.json();
         setUsers(data.users);
       } catch (err) {
