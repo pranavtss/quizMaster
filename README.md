@@ -15,7 +15,7 @@ It is built using **React.js** and communicates with the backend to provide a sm
 ---
 
 ## 🌐 Links and Deployment
-- Backend Repo: [quizMaster](https://github.com/pranavtss/Backend-QuizMaster.git)
+- Backend Repo: [QuizMaster](https://github.com/pranavtss/Backend-QuizMaster.git)
 - Frontend Live (Vercel): [QuizMaster App](https://quiz-master-six-iota.vercel.app/)
 
 ---
