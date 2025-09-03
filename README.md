@@ -1,21 +1,47 @@
-# Quiz Master 🎯
+# Frontend - QuizMaster 🎨  
 
-An interactive quiz application built with **Vite + React**.  
-Users can take quizzes, track scores, and test their knowledge in a fun way.  
+This is the **frontend application** for the QuizMaster project.  
+It is built using **React.js** and communicates with the backend to provide a smooth quiz experience.  
 
-🌐 Live Demo: [Quiz Master on Vercel](https://quiz-master-six-iota.vercel.app/)
+---
 
-## Features
-- Dynamic quiz questions  
-- Score tracking  
-- Responsive UI with smooth design  
-- Built using React, Vite, and modern JavaScript  
+## 🚀 Features
+- User signup before starting the quiz  
+- Interactive quiz interface  
+- Real-time score tracking  
+- Responsive design (desktop + mobile)  
+- Integrated with backend APIs  
 
-## Installation
-Clone the repository and install dependencies:
+---
+
+## 🌐 Links and Deployment
+- Frontend Repo: [quizMaster](https://github.com/pranavtss/quizMaster.git)
+- Frontend Live (Vercel): [QuizMaster App](https://quiz-master-six-iota.vercel.app/)
+
+---
+## 🛠️ Tech Stack
+- **React.js** - Frontend library  
+- **CSS3** - Styling and animations  
+- **Vercel** - Deployment platform  
+- **Fetch API** - For communicating with backend  
+
+---
+
+
+---
+
+## ⚙️ Installation & Setup  
+
+Run the following commands:  
 
 ```bash
+# Clone the repository
 git clone https://github.com/pranavtss/quizMaster.git
 cd quizMaster
+
+# Install dependencies
 npm install
-npm run dev
+
+# Start the development server
+npm start
+
