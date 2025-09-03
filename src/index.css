@@ -47,13 +47,16 @@ body {
   flex-wrap: wrap;
   gap: 10px;
   padding: 14px 22px;
-  background: var(--nav-desktop);
+  background: linear-gradient(135deg, #b3e4c2, #77a7a0, #456a6e, #44727e);
+  background-size: 300% 300%;
+  animation: navGradient 6s ease infinite;
   backdrop-filter: blur(6px);
   color: #fff;
   box-shadow: var(--shadow);
   z-index: 10;
   transition: background 0.3s ease;
 }
+
 
 .logo {
   font-weight: 800;
@@ -207,7 +210,7 @@ button:active,
 @media (max-width: 480px) {
   .navbar {
     padding: 14px 16px;
-    background: linear-gradient(135deg, #ff6a00, #ee0979, #8743cf, #2575fc);
+    background: linear-gradient(135deg, #b3e4c2, #77a7a0, #456a6e, #44727e);
     background-size: 300% 300%;
     animation: navGradient 8s ease infinite;
     border-radius: 0 0 18px 18px;
@@ -219,7 +222,6 @@ button:active,
   .logo {
     font-size: 20px;
     letter-spacing: 1px;
-    text-transform: uppercase;
     background: linear-gradient(90deg, #fff, #ffeaa7, #81ecec);
     -webkit-background-clip: text;
     background-clip: text;
