@@ -49,7 +49,7 @@ body {
   padding: 14px 22px;
   background: linear-gradient(135deg, #b3e4c2, #77a7a0, #456a6e, #44727e);
   background-size: 300% 300%;
-  animation: navGradient 6s ease infinite;
+  animation: navGradient 8s ease infinite;
   backdrop-filter: blur(6px);
   color: #fff;
   box-shadow: var(--shadow);
@@ -57,11 +57,15 @@ body {
   transition: background 0.3s ease;
 }
 
-
 .logo {
+  font-size: 20px;
   font-weight: 800;
-  letter-spacing: 0.3px;
-  font-size: clamp(18px, 2vw, 24px);
+    letter-spacing: 1px;
+    background: linear-gradient(90deg, #fff, #ffeaa7, #81ecec);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: logoShine 4s linear infinite;
 }
 
 .nav-links {
@@ -150,6 +154,7 @@ button:active,
   padding: clamp(18px, 4vw, 26px);
   box-shadow: var(--shadow);
   text-align: left;
+  animation: logoShine 4s linear infinite;
   animation: pop 0.35s ease;
 }
 .card h2 {
@@ -353,11 +358,11 @@ button:active,
   color: #0077ff;
 }
 .signup-container {
-  min-height: 100vh; 
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center; 
-  justify-content: center; 
+  align-items: center;
+  justify-content: center;
   background: radial-gradient(1000px 600px at 30% 20%, #ffffff40, transparent),
     linear-gradient(135deg, #89f7fe, #66a6ff);
   padding: 20px;
