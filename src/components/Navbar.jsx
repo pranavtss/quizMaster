@@ -16,6 +16,12 @@ export default function Navbar({ active = "home", onNavigate }) {
           Quiz
         </button>
         <button
+          className={`nav-button ${active === "leaderboard" ? "active" : ""}`}
+          onClick={() => onNavigate("leaderboard")}
+        >
+          Leaderboard
+        </button>
+        <button
           className={`nav-button ${active === "about" ? "active" : ""}`}
           onClick={() => onNavigate("about")}
         >

@@ -3,10 +3,20 @@ import { useState } from "react";
 export default function Signup({ onContinue }) {
   const [name, setName] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (name.trim()) {
-      onContinue(name.trim());
+    if (!name.trim()) return;
+
+    try {
+      const res = await fetch("http://localhost:5000/users/score", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: name.trim(), score: 0 }), 
+      });
+      const data = await res.json();
+      if (res.ok) onContinue(data.user.name);
+    } catch (err) {
+      console.error("Error saving user:", err);
     }
   };
 

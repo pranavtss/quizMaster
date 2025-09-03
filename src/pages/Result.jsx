@@ -1,6 +1,26 @@
+import { useEffect } from "react";
 import ResultCard from "../components/ResultCard";
 
-export default function Result({ score, total, onRestart, onHome, answers }) {
+export default function Result({ score, total, onRestart, onHome, answers, userName }) {
+
+  useEffect(() => {
+    const saveScore = async () => {
+      try {
+        const res = await fetch("http://localhost:5000/users/score", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name: userName, score }),
+        });
+        const data = await res.json();
+        console.log("Score saved:", data);
+      } catch (err) {
+        console.error("Error saving score:", err);
+      }
+    };
+
+    if (userName) saveScore();
+  }, [score, userName]);
+
   return (
     <div className="page">
       <ResultCard score={score} total={total} onRestart={onRestart} onHome={onHome} />

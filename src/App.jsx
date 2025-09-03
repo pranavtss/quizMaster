@@ -4,10 +4,17 @@ import Home from "./pages/Home";
 import Quiz from "./pages/Quiz";
 import Result from "./pages/Result";
 import Signup from "./pages/Signup";
-import About from "./pages/About";   // ⬅️ Import About
-import "./index.css";
+import About from "./pages/About";
+import LeaderBoard from "./pages/LeaderBoard";
 
-const VIEWS = { SIGNUP: "signup", HOME: "home", QUIZ: "quiz", RESULT: "result", ABOUT: "about" };
+const VIEWS = {
+  SIGNUP: "signup",
+  HOME: "home",
+  QUIZ: "quiz",
+  RESULT: "result",
+  ABOUT: "about",
+  LEADERBOARD: "leaderboard",
+};
 
 export default function App() {
   const [view, setView] = useState(VIEWS.SIGNUP);
@@ -45,7 +52,10 @@ export default function App() {
   const handleAnswer = (selected) => {
     const correct = questions[index].answer;
     if (selected === correct) setScore((s) => s + 1);
-    setAnswers((prev) => [...prev, { q: questions[index].question, selected, correct }]);
+    setAnswers((prev) => [
+      ...prev,
+      { q: questions[index].question, selected, correct },
+    ]);
 
     if (index + 1 < questions.length) {
       setIndex((i) => i + 1);
@@ -59,16 +69,18 @@ export default function App() {
 
   return (
     <div className="app">
+     
       {view !== VIEWS.SIGNUP && (
         <Navbar
           active={view}
           onNavigate={(v) => {
             if (v === "quiz") startQuiz();
-            else setView(v); // allow direct navigation
+            else setView(v);
           }}
         />
       )}
 
+ 
       {view === VIEWS.SIGNUP && (
         <Signup
           onContinue={(name) => {
@@ -79,9 +91,11 @@ export default function App() {
       )}
 
       {view === VIEWS.HOME && <Home onStart={startQuiz} name={username} />}
+
       {view === VIEWS.QUIZ && questions.length > 0 && (
         <Quiz questions={questions} index={index} onAnswer={handleAnswer} />
       )}
+
       {view === VIEWS.RESULT && (
         <Result
           score={score}
@@ -89,9 +103,13 @@ export default function App() {
           onRestart={restart}
           onHome={goHome}
           answers={answers}
+          userName={username} 
         />
       )}
+
       {view === VIEWS.ABOUT && <About />}
+
+      {view === VIEWS.LEADERBOARD && <LeaderBoard />}
     </div>
   );
 }
